@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد الاختيار | SFDM</title>
+    <link rel="stylesheet" href="which.css">
+    <style>
+        body { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+        .container { width: min(600px, 100%); min-height: auto; border-radius: 18px; }
+        .cards { width: min(100%, 420px); text-align: center; }
+        .cards h1 { margin-bottom: 14px; }
+        .cards p { margin: 10px 0; }
+        .cards a { display: inline-block; margin-top: 16px; padding: 12px 24px;
+            border-radius: 8px; background: #355184; color: white; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="cards">
+            <h1>تم اختيار مسارك الدراسي</h1>
+            <p id="selected-path"></p>
+            <p>سجّل الدخول للانتقال إلى المنصة.</p>
+            <a href="login.html">متابعة إلى تسجيل الدخول</a>
+        </section>
+    </main>
+    <script>
+        const params = new URLSearchParams(location.search);
+        const stage = params.get("stage") || sessionStorage.getItem("sfdmStage") || "";
+        const track = params.get("track") || sessionStorage.getItem("sfdmTrack") || "";
+        document.getElementById("selected-path").textContent =
+            stage && track ? `${stage} - ${track}` : "لم يتم اختيار مرحلة دراسية بعد.";
+    </script>
+</body>
+</html>

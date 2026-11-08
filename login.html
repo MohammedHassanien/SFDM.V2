@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SFDM</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h1 id="h">Login | SFDM</h1>
+    <section class="container">
+        <form id="loginForm">
+            <div class="User">
+                <label for="username">Username</label>
+                <input type="text" id="username" required placeholder="Please Enter Your UserName">
+            </div>
+            <div class="Pass">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="Please Enter Your Password">
+            </div>
+            <button id="btn" type="submit">Submit</button>
+            <label>you dont have account already?</label>
+            <a href="Register.html">Register</a>
+        </form>
+    </section>
+    <footer>
+        <h3>©copy right 2027</h3>
+        <p>Welcome To Visit SFDM</p>
+        <a href="index.html">Home</a>
+    </footer>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            window.location.href = "courses.html";
+        });
+    </script>
+</body>
+</html>

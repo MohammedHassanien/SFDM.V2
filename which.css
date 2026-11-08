@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: snow;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    gap: 25px;
+    align-items: center;
+    background-color: rgb(121, 13, 13);
+    padding: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+.cards{
+    background-color: #ffbf00;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
