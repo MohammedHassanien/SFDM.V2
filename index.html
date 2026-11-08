@@ -1,83 +1,38 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختيار المرحلة الدراسية | SFDM</title>
-    <link rel="stylesheet" href="selection.css">
+    <title>Login | SFDM</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <main class="page">
-        <header class="header">
-            <p class="eyebrow">SFDM</p>
-            <h1>أهلاً بك في منصتنا التعليمية</h1>
-            <p class="subtitle">اختر مرحلتك الدراسية لنوصلك إلى المحتوى المناسب لك.</p>
-        </header>
-
-        <section class="panel" aria-live="polite">
-            <div id="step-stage">
-                <h2>أنت في أي مرحلة دراسية؟</h2>
-                <div class="choices">
-                    <button class="choice" data-stage="إعدادي">المرحلة الإعدادية</button>
-                    <button class="choice" data-stage="ثانوي">المرحلة الثانوية</button>
-                </div>
+    <h1 id="h">Login | SFDM</h1>
+    <section class="container">
+        <form id="loginForm">
+            <div class="User">
+                <label for="username">Username</label>
+                <input type="text" id="username" required placeholder="Please Enter Your UserName">
             </div>
-
-            <div id="step-track" hidden>
-                <button class="back" id="back-stage" type="button">→ رجوع</button>
-                <h2 id="track-title">اختر نوع التعليم</h2>
-                <div class="choices" id="track-choices"></div>
+            <div class="Pass">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="Please Enter Your Password">
             </div>
-        </section>
-        <p class="hint">يمكنك تغيير اختيارك بالضغط على زر الرجوع.</p>
-    </main>
-
+            <button id="btn" type="submit">Submit</button>
+            <label>you dont have account already?</label>
+            <a href="Register.html">Register</a>
+        </form>
+    </section>
+    <footer>
+        <h3>©copy right 2027</h3>
+        <p>Welcome To Visit SFDM</p>
+        <a href="index.html">Home</a>
+    </footer>
     <script>
-        const stageStep = document.getElementById("step-stage");
-        const trackStep = document.getElementById("step-track");
-        const trackTitle = document.getElementById("track-title");
-        const trackChoices = document.getElementById("track-choices");
-        let selectedStage = "";
-
-        const tracks = {
-            "إعدادي": ["عربي", "لغات"],
-            "ثانوي": ["تجاري", "صناعي", "تكنولوجي", "عام", "لغات"]
-        };
-
-        document.querySelectorAll("[data-stage]").forEach(button => {
-            button.addEventListener("click", () => {
-                selectedStage = button.dataset.stage;
-                showTracks();
-            });
-        });
-
-        function showTracks() {
-            stageStep.hidden = true;
-            trackStep.hidden = false;
-            trackTitle.textContent = `اختر نوع التعليم في المرحلة ${selectedStage}`;
-            trackChoices.replaceChildren();
-
-            tracks[selectedStage].forEach(track => {
-                const button = document.createElement("button");
-                button.className = "choice";
-                button.type = "button";
-                button.textContent = track;
-                button.addEventListener("click", () => {
-                    const params = new URLSearchParams({
-                        stage: selectedStage,
-                        track: track
-                    });
-                    sessionStorage.setItem("sfdmStage", selectedStage);
-                    sessionStorage.setItem("sfdmTrack", track);
-                    window.location.href = `which.html?${params.toString()}`;
-                });
-                trackChoices.appendChild(button);
-            });
-        }
-
-        document.getElementById("back-stage").addEventListener("click", () => {
-            trackStep.hidden = true;
-            stageStep.hidden = false;
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            // After login, go to selection page
+            window.location.href = "selection.html";
         });
     </script>
 </body>
